@@ -6,6 +6,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "hardhat.config.ts",
+    "./deploy",
+    "./test"
+  ]
 }
