@@ -1,5 +1,18 @@
 {
-  "name": "hardhat-project",
+  "name": "skale-s2s-tokens",
+  "author": {
+    "name": "Sawyer Cutler",
+    "email": "sawyer@dirtroad.dev",
+    "url": "https://dirtroad.dev"
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+        "name": "Sawyer Cutler",
+        "email": "sawyer@dirtroad.dev",
+        "url": "https://dirtroad.dev"
+    }
+  ],
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "hardhat": "^2.11.2",
