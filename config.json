@@ -8,7 +8,7 @@
             "verifyPath": "contracts/ERC20/IMA/EuropaDAI.sol:EuropaDAI",
             "tag": "DAI"
         },
-        "weth": {
+        "eth": {
             "contract": "EuropaETH",
             "verifyPath": "contracts/ERC20/IMA/EuropaETH.sol:EuropaETH",
             "tag": "ETH"

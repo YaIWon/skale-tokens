@@ -33,6 +33,7 @@ task("wethu-mint", "Mint wETHu")
 
 const BASE_RPC_URL: string = "https://staging-v2.skalenodes.com/v1/";
 const BASE_RPC_URL_V3: string = "https://staging-v3.skalenodes.com/v1/";
+const BASE_RPC_MAINNET: string = "https://mainnet.skalenodes.com/v1/";
 
 const config: HardhatUserConfig = {
     solidity: "0.8.17",
@@ -94,15 +95,20 @@ const config: HardhatUserConfig = {
             accounts: [PRIVATE_KEY],
             url: BASE_RPC_URL + 'lean-yawning-late-skale'
         },
-        "calypso-v3": {
+        "calypso-staging-v3": {
             accounts: [PRIVATE_KEY],
             url: BASE_RPC_URL_V3 + 'staging-utter-unripe-menkar'
+        },
+        "calypso": {
+            accounts: [PRIVATE_KEY],
+            url: BASE_RPC_MAINNET + 'honorable-steel-rasalhague'
         }
     },
     etherscan: {
         apiKey: {
             "calypso-staging-v2": "na",
-            "calypso-staging-v3": "na"
+            "calypso-staging-v3": "na",
+            "calypso": "non-applicable-value"
         },
         customChains: [
              {
@@ -120,7 +126,16 @@ const config: HardhatUserConfig = {
                     apiURL: "https://staging-utter-unripe-menkar.explorer.staging-v3.skalenodes.com/api",
                     browserURL: "https://staging-utter-unripe-menkar.explorer.staging-v3.skalenodes.com"
                 }
+            },
+            {
+                network: "calypso",
+                chainId:  1564830818,
+                urls: {
+                    apiURL: "https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com/api",
+                    browserURL: "https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com"
+                }
             }
+
         ]
     }
 };

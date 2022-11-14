@@ -2,7 +2,7 @@ import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 import Config from '../../config.json';
 
-const TOKEN = Config.ima.weth;
+const TOKEN = Config.ima.eth;
 
 const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
 
