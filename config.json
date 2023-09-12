@@ -2,7 +2,42 @@
     "log": true,
     "taskName": "verify:verify",
     "collab_land": {
-        "tags": ["collab"]
+        "tags": ["collab"],
+        "alex": {
+            "contract": "AlexMasmej",
+            "verifyPath": "contracts/ERC20/Collab.Land/AlexMasmej.sol:AlexMasmej",
+            "tag": "alex"
+        },
+        "fwb": {
+            "contract": "FriendsWithBenefits",
+            "verifyPath": "contracts/ERC20/Collab.Land/FriendsWithBenefits.sol:FriendsWithBenefits",
+            "tag": "fwb"
+        },
+        "gcr": {
+            "contract": "GlobalCoinResearch",
+            "verifyPath": "contracts/ERC20/Collab.Land/GlobalCoinResearch.sol:GlobalCoinResearch",
+            "tag": "gcr"
+        },
+        "hero": {
+            "contract": "Hero",
+            "verifyPath": "contracts/ERC20/Collab.Land/Hero.sol:Hero",
+            "tag": "hero"
+        },
+        "page": {
+            "contract": "Page",
+            "verifyPath": "contracts/ERC20/Collab.Land/Page.sol:Page",
+            "tag": "page"
+        },
+        "squig": {
+            "contract": "SquiggleDAOToken",
+            "verifyPath": "contracts/ERC20/Collab.Land/SquiggleDAOToken.sol:SquiggleDAOToken",
+            "tag": "squig"
+        },
+        "warp": {
+            "contract": "Warp",
+            "verifyPath": "contracts/ERC20/Collab.Land/Warp.sol:Warp",
+            "tag": "warp"
+        }
     },
     "ima": {
         "tags": ["IMA", "Default"],

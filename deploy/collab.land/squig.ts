@@ -2,7 +2,7 @@ import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 import Config from '../../config.json';
 
-const TOKEN = Config.collab_land.hero;
+const TOKEN = Config.collab_land.squig;
 
 const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
     try {
