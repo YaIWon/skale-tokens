@@ -31,7 +31,6 @@ task("wethu-mint", "Mint wETHu")
     })
 
 
-const BASE_RPC_URL: string = "https://staging-v2.skalenodes.com/v1/";
 const BASE_RPC_URL_V3: string = "https://staging-v3.skalenodes.com/v1/";
 const BASE_RPC_MAINNET: string = "https://mainnet.skalenodes.com/v1/";
 
