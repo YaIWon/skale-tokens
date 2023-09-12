@@ -19,4 +19,24 @@ In order to utilize this repository, you must:
 
 There are plenty of customizable options that will be covered below.
 
+### Deploy USDC
 
+To deploy USDC, you would run the following:
+
+```shell
+    # Calypso Mainnet
+    npx hardhat deploy --tags usdc --network calypso
+
+    # Calypso Testnet
+    npx hardhat deploy --tags usdc --network calypso-staging-v3
+```
+
+### Collab.Land Tokens
+
+```shell
+    # Calypso Mainnet
+    npx hardhat deploy --tags collab --network calypso
+
+    # Calypso Testnet
+    npx hardhat deploy --tags collab --network calypso-staging-v3
+```

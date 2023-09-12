@@ -33,4 +33,4 @@ const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
 
 export default func;
 
-func.tags = Config.ima.tags.concat(TOKEN.tag);
+func.tags = Config.collab_land.tags.concat(TOKEN.tag);
