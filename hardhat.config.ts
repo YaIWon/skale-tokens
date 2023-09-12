@@ -42,59 +42,6 @@ const config: HardhatUserConfig = {
         deployer: 0 
     },
     networks: {
-        "se-team": {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'deafening-maia'
-        },
-        'europa': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'fancy-rasalhague'
-        },
-        'calypso-staging-v2': {
-            chainId: 104734457,
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'actual-secret-cebalrai'
-        },
-        'stocky': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'stocky-pleione'
-        },
-        'honorable': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'honorable-steel-rasalhague'
-        },
-        'exorde': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'shapely-dschubba'
-        },
-        'cryptoblades': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'glamorous-grumium'
-        },
-        'fit-graffias': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'fit-graffias'
-        },
-        'whispering': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'whispering-turais'
-        },
-        'attractive': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'attractive-merope'
-        },
-        'roasted': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'roasted-thankful-unukalhai'
-        },
-        'spry': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'spry-wobbly-ready-skale'
-        },
-        'lean': {
-            accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL + 'lean-yawning-late-skale'
-        },
         "calypso-staging-v3": {
             accounts: [PRIVATE_KEY],
             url: BASE_RPC_URL_V3 + 'staging-utter-unripe-menkar'
@@ -102,21 +49,25 @@ const config: HardhatUserConfig = {
         "calypso": {
             accounts: [PRIVATE_KEY],
             url: BASE_RPC_MAINNET + 'honorable-steel-rasalhague'
-        }
+        },
+        "chaos": {
+            accounts: [PRIVATE_KEY],
+            url: BASE_RPC_URL_V3 + 'staging-fast-active-bellatrix'
+        },
     },
     etherscan: {
         apiKey: {
-            "calypso-staging-v2": "na",
             "calypso-staging-v3": "na",
-            "calypso": "non-applicable-value"
+            "calypso": "non-applicable-value",
+            "chaos": "na"
         },
         customChains: [
              {
-                network: "calypso-staging-v2",
-                chainId:  104734457,
+                network: "chaos",
+                chainId: 1351057110,
                 urls: {
-                    apiURL: "https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com/api",
-                    browserURL: "https://actual-secret-cebalrai.explorer.staging-v2.skalenodes.com"
+                    apiURL: "https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com/api",
+                    browserURL: "https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com"
                 }
             },
             {

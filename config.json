@@ -1,6 +1,9 @@
 {
     "log": true,
     "taskName": "verify:verify",
+    "collab_land": {
+        "tags": ["collab"]
+    },
     "ima": {
         "tags": ["IMA", "Default"],
         "dai": {
