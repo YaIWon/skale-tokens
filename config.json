@@ -39,6 +39,24 @@
             "tag": "warp"
         }
     },
+    "europa": {
+        "tags": ["europa"],
+        "link": {
+            "contract": "LinkToken",
+            "verifyPath": "contracts/ERC20/Europa/Link.sol:LinkToken",
+            "tag": "link"
+        },
+        "sushi": {
+            "contract": "SushiToken",
+            "verifyPath": "contracts/ERC20/Europa/Sushi.sol:SushiToken",
+            "tag": "sushi"
+        },
+        "wct1": {
+            "contract": "WrappedCarToken1",
+            "verifyPath": "contracts/ERC20/Europa/wCT1.sol:WrappedCarToken1",
+            "tag": "wct1"
+        }
+    },
     "ima": {
         "tags": ["IMA", "Default"],
         "dai": {
