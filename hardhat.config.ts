@@ -1,7 +1,7 @@
 /**
  *
- * @author Sawyer Cutler
- * @copyright 2022 Sawyer Cutler
+ * @author Sawyer
+ * @copyright 2022-2024 Dirt Road Development
  * @license MIT
  *
 **/
@@ -20,18 +20,8 @@ if (!PRIVATE_KEY) {
     throw new Error("Private Key Not Found");
 }
 
-task("wethu-mint", "Mint wETHu")
-    .setAction(async(taskArgs: any, { ethers, getNamedAccounts }) => {
-        
-        const contract = await ethers.getContractAt("CalypsoWETHU", "0x08f98Af60eb83C18184231591A8F89577E46A4B9");
 
-        const res = await contract.mint("0x2c20Ef3fc0248FCA2DC57bcb202F2CAe504A9A66", ethers.utils.parseEther("0.005"));
-
-        console.log("RES: ", res);
-    })
-
-
-const BASE_RPC_URL_V3: string = "https://staging-v3.skalenodes.com/v1/";
+const BASE_RPC_TESTNET: string = "https://testnet.skalenodes.com/v1/";
 const BASE_RPC_MAINNET: string = "https://mainnet.skalenodes.com/v1/";
 
 const config: HardhatUserConfig = {
@@ -41,51 +31,63 @@ const config: HardhatUserConfig = {
         deployer: 0 
     },
     networks: {
-        "calypso-staging-v3": {
+        "calypso-testnet": {
             accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL_V3 + 'staging-utter-unripe-menkar'
+            url: BASE_RPC_TESTNET + 'giant-half-dual-testnet'
         },
-        "calypso": {
+        "calypso-mainnet": {
             accounts: [PRIVATE_KEY],
             url: BASE_RPC_MAINNET + 'honorable-steel-rasalhague'
         },
-        "chaos": {
+        "europa-testnet": {
             accounts: [PRIVATE_KEY],
-            url: BASE_RPC_URL_V3 + 'staging-fast-active-bellatrix'
+            url: BASE_RPC_TESTNET + 'juicy-low-small-testnet'
         },
+        "europa-mainnet": {
+            accounts: [PRIVATE_KEY],
+            url: BASE_RPC_MAINNET + "elated-tan-skat"
+        }
     },
     etherscan: {
         apiKey: {
-            "calypso-staging-v3": "na",
-            "calypso": "non-applicable-value",
-            "chaos": "na"
+            "calypso-testnet": "na",
+            "calypso-mainnet": "na",
+            "europa-testnet": "na",
+            "europa-mainnet": "na",
         },
         customChains: [
              {
-                network: "chaos",
-                chainId: 1351057110,
+                network: "calypso-testnet",
+                chainId: 974399131,
                 urls: {
-                    apiURL: "https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com/api",
-                    browserURL: "https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com"
+                    apiURL: "https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/api",
+                    browserURL: "https://giant-half-dual-testnet.explorer.testnet.skalenodes.com"
                 }
             },
             {
-                network: "calypso-staging-v3",
-                chainId:  344106930,
+                network: "europa-testnet",
+                chainId: 1444673419,
                 urls: {
-                    apiURL: "https://staging-utter-unripe-menkar.explorer.staging-v3.skalenodes.com/api",
-                    browserURL: "https://staging-utter-unripe-menkar.explorer.staging-v3.skalenodes.com"
+                    apiURL: "https://juicy-low-small-testnet.explorer.testnet.skalenodes.com/api",
+                    browserURL: "https://juicy-low-small-testnet.explorer.testnet.skalenodes.com"
                 }
             },
             {
-                network: "calypso",
+                network: "calypso-mainnet",
                 chainId:  1564830818,
                 urls: {
                     apiURL: "https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com/api",
                     browserURL: "https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com"
                 }
+            },
+            {
+                network: "europa-mainnet",
+                chainId:  2046399126,
+                urls: {
+                    apiURL: "https://elated-tan-skat.explorer.mainnet.skalenodes.com/api",
+                    browserURL: "https://elated-tan-skat.explorer.mainnet.skalenodes.com"
+                }
             }
-
         ]
     }
 };
