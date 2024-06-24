@@ -59,6 +59,11 @@
     },
     "ima": {
         "tags": ["IMA", "Default"],
+        "cmps": {
+            "contract": "EuropaCMPS",
+            "verifyPath": "contracts/ERC20/IMA/EuropaCMPS.sol:EuropaCMPS",
+            "tag": "CMPS"
+        },
         "dai": {
             "contract": "EuropaDAI",
             "verifyPath": "contracts/ERC20/IMA/EuropaDAI.sol:EuropaDAI",
