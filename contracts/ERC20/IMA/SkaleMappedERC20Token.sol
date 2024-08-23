@@ -12,6 +12,7 @@ contract SkaleMappedERC20Token is ERC20, AccessControl {
         string memory name,
         string memory symbol
     ) ERC20(name, symbol) {
+        _grantRole(DEFAULT_ADMIN_ROLE, 0xD244519000000000000000000000000000000000);
         _grantRole(MINTER_ROLE, 0xD2aAA00500000000000000000000000000000000);
         _grantRole(BURNER_ROLE, 0xD2aAA00500000000000000000000000000000000);
     }
