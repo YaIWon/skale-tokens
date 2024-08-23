@@ -60,6 +60,11 @@
             "contract": "WrappedCarToken1",
             "verifyPath": "contracts/ERC20/Europa/wCT1.sol:WrappedCarToken1",
             "tag": "wct1"
+        },
+        "pepe": {
+            "contract": "PepeToken",
+            "verifyPath": "contracts/ERC20/Europa/Pepe.sol:PepeToken",
+            "tag": "pepe"
         }
     },
     "ima": {
