@@ -46,6 +46,10 @@ const config: HardhatUserConfig = {
         "europa-mainnet": {
             accounts: [PRIVATE_KEY],
             url: BASE_RPC_MAINNET + "elated-tan-skat"
+        },
+        "nebula-testnet": {
+            accounts: [PRIVATE_KEY],
+            url: "https://lanky-ill-funny-testnet-indexer.skalenodes.com:10136"
         }
     },
     etherscan: {

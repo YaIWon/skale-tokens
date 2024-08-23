@@ -30,7 +30,7 @@ const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
         });
 
     } catch (err) {
-
+        console.log(err);
     }
 }
 
