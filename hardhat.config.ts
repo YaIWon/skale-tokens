@@ -50,6 +50,10 @@ const config: HardhatUserConfig = {
         "nebula-testnet": {
             accounts: [PRIVATE_KEY],
             url: "https://lanky-ill-funny-testnet-indexer.skalenodes.com:10136"
+        },
+        "titan-mainnet": {
+            accounts: [PRIVATE_KEY],
+            url: "https://mainnet.skalenodes.com/v1/parallel-stormy-spica"
         }
     },
     etherscan: {
@@ -58,6 +62,7 @@ const config: HardhatUserConfig = {
             "calypso-mainnet": "na",
             "europa-testnet": "na",
             "europa-mainnet": "na",
+            "titan-mainnet": "na"
         },
         customChains: [
              {
@@ -82,6 +87,14 @@ const config: HardhatUserConfig = {
                 urls: {
                     apiURL: "https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com/api",
                     browserURL: "https://honorable-steel-rasalhague.explorer.mainnet.skalenodes.com"
+                }
+            },
+            {
+                network: "titan-mainnet",
+                chainId: 1350216234,
+                urls: {
+                    apiURL: "https://parallel-stormy-spica.explorer.mainnet.skalenodes.com/api",
+                    browserURL: "https://parallel-stormy-spica.explorer.mainnet.skalenodes.com"
                 }
             },
             {
