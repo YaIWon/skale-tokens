@@ -13,6 +13,8 @@ import dotenv from 'dotenv';
 import 'hardhat-deploy';
 import 'hardhat-deploy-ethers';
 
+import "./scripts";
+
 dotenv.config();
 
 const PRIVATE_KEY: string | undefined = (process.env.PRIVATE_KEY as string | undefined);
@@ -62,9 +64,18 @@ const config: HardhatUserConfig = {
             "calypso-mainnet": "na",
             "europa-testnet": "na",
             "europa-mainnet": "na",
-            "titan-mainnet": "na"
+            "titan-mainnet": "na",
+            "nebula-testnet": "na"
         },
         customChains: [
+            {
+                network: "nebula-testnet",
+                chainId: 37084624,
+                urls: {
+                    apiURL: "https://lanky-ill-funny-testnet.explorer.testnet.skalenodes.com/api",
+                    browserURL: "https://lanky-ill-funny-testnet.explorer.testnet.skalenodes.com"
+                }
+            },
              {
                 network: "calypso-testnet",
                 chainId: 974399131,
