@@ -2,25 +2,26 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
-contract SkaleMappedERC721Token is ERC721, ERC721URIStorage, AccessControl {
+contract SkaleMappedERC721Token is ERC721, AccessControl {
+    
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
     bytes32 public constant SET_URI_ROLE = keccak256("SET_URI_ROLE");
 
+    string private _baseEndpoint;
+
     constructor(
         string memory name,
-        string memory symbol
+        string memory symbol,
+        address manager
     ) ERC721(name, symbol) {
         _grantRole(DEFAULT_ADMIN_ROLE, 0xD244519000000000000000000000000000000000);
-        _grantRole(MINTER_ROLE, 0xd2AaA00a00000000000000000000000000000000);
-        _grantRole(BURNER_ROLE, 0xd2AaA00a00000000000000000000000000000000);
-        _grantRole(SET_URI_ROLE, 0xd2AaA00a00000000000000000000000000000000);
         _grantRole(MINTER_ROLE, 0xD2aaa00600000000000000000000000000000000);
         _grantRole(BURNER_ROLE, 0xD2aaa00600000000000000000000000000000000);
-        _grantRole(SET_URI_ROLE, 0xD2aaa00600000000000000000000000000000000);
+        _grantRole(SET_URI_ROLE, manager);
+        
     }
 
     function mint(address to, uint256 amount) public virtual {
@@ -28,35 +29,33 @@ contract SkaleMappedERC721Token is ERC721, ERC721URIStorage, AccessControl {
         _mint(to, amount);
     }
 
-    function _burn(uint256 tokenId)
-        internal
-        virtual
-        override(ERC721, ERC721URIStorage)
-    {
-        super._burn(tokenId);
+    function burn(address to, uint256 amount) public virtual {
+        require(hasRole(BURNER_ROLE, msg.sender), "Caller is not a minter");
+        _mint(to, amount);
     }
 
-
-
-    function setTokenURI(uint256 tokenId, string memory newTokenUri) public virtual {
-        require(hasRole(SET_URI_ROLE, msg.sender), "Caller is not a uri setter");
-        _setTokenURI(tokenId, newTokenUri);
+    function setBaseEndpoint(string memory endpoint) public onlyRole(SET_URI_ROLE) {
+        _baseEndpoint = endpoint;
     }
 
+    function _baseURI() internal view override virtual returns (string memory) {
+        return _baseEndpoint;
+    }
 
     function tokenURI(uint256 tokenId)
         public
         view
-        override(ERC721, ERC721URIStorage)
+        override
         returns (string memory)
     {
-        return super.tokenURI(tokenId);
+        string memory uri = _baseURI();
+        return bytes(uri).length > 0 ? string(abi.encodePacked(uri, Strings.toString(tokenId), ".json")) : "";
     }
 
     function supportsInterface(bytes4 interfaceId)
         public
         view
-        override(ERC721, ERC721URIStorage, AccessControl)
+        override(ERC721, AccessControl)
         returns (bool)
     {
         return super.supportsInterface(interfaceId);

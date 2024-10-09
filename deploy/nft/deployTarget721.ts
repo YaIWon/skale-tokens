@@ -18,7 +18,7 @@ const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
             {
                 from: deployer,
                 log: true,
-                args: [tokenName, tokenSymbol]
+                args: [tokenName, tokenSymbol, "0x8f2aC7323316974c05Eb3ADc72810f92a2ad471E"]
             }
         );
 
@@ -28,7 +28,7 @@ const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
             address,
             contract: "contracts/NFT/SkaleMappedERC721Token.sol:SkaleMappedERC721Token",
             constructorArguments: [
-                tokenName, tokenSymbol
+                tokenName, tokenSymbol, "0x8f2aC7323316974c05Eb3ADc72810f92a2ad471E"
             ]
         });
     } catch (err) {
