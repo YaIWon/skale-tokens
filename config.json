@@ -51,6 +51,11 @@
             "verifyPath": "contracts/ERC20/Europa/Link.sol:LinkToken",
             "tag": "link"
         },
+        "rocketETH": {
+            "contract": "RocketTokenRETH",
+            "verifyPath": "contracts/ERC20/Europa/RocketTokenRETH.sol:RocketTokenRETH",
+            "tag": "reth"
+        },
         "sushi": {
             "contract": "SushiToken",
             "verifyPath": "contracts/ERC20/Europa/Sushi.sol:SushiToken",

@@ -34,74 +34,11 @@
     "@openzeppelin/contracts/utils/Strings.sol": {
       "content": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v4.9.0) (utils/Strings.sol)\n\npragma solidity ^0.8.0;\n\nimport \"./math/Math.sol\";\nimport \"./math/SignedMath.sol\";\n\n/**\n * @dev String operations.\n */\nlibrary Strings {\n    bytes16 private constant _SYMBOLS = \"0123456789abcdef\";\n    uint8 private constant _ADDRESS_LENGTH = 20;\n\n    /**\n     * @dev Converts a `uint256` to its ASCII `string` decimal representation.\n     */\n    function toString(uint256 value) internal pure returns (string memory) {\n        unchecked {\n            uint256 length = Math.log10(value) + 1;\n            string memory buffer = new string(length);\n            uint256 ptr;\n            /// @solidity memory-safe-assembly\n            assembly {\n                ptr := add(buffer, add(32, length))\n            }\n            while (true) {\n                ptr--;\n                /// @solidity memory-safe-assembly\n                assembly {\n                    mstore8(ptr, byte(mod(value, 10), _SYMBOLS))\n                }\n                value /= 10;\n                if (value == 0) break;\n            }\n            return buffer;\n        }\n    }\n\n    /**\n     * @dev Converts a `int256` to its ASCII `string` decimal representation.\n     */\n    function toString(int256 value) internal pure returns (string memory) {\n        return string(abi.encodePacked(value < 0 ? \"-\" : \"\", toString(SignedMath.abs(value))));\n    }\n\n    /**\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation.\n     */\n    function toHexString(uint256 value) internal pure returns (string memory) {\n        unchecked {\n            return toHexString(value, Math.log256(value) + 1);\n        }\n    }\n\n    /**\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation with fixed length.\n     */\n    function toHexString(uint256 value, uint256 length) internal pure returns (string memory) {\n        bytes memory buffer = new bytes(2 * length + 2);\n        buffer[0] = \"0\";\n        buffer[1] = \"x\";\n        for (uint256 i = 2 * length + 1; i > 1; --i) {\n            buffer[i] = _SYMBOLS[value & 0xf];\n            value >>= 4;\n        }\n        require(value == 0, \"Strings: hex length insufficient\");\n        return string(buffer);\n    }\n\n    /**\n     * @dev Converts an `address` with fixed length of 20 bytes to its not checksummed ASCII `string` hexadecimal representation.\n     */\n    function toHexString(address addr) internal pure returns (string memory) {\n        return toHexString(uint256(uint160(addr)), _ADDRESS_LENGTH);\n    }\n\n    /**\n     * @dev Returns true if the two strings are equal.\n     */\n    function equal(string memory a, string memory b) internal pure returns (bool) {\n        return keccak256(bytes(a)) == keccak256(bytes(b));\n    }\n}\n"
     },
-    "contracts/ERC20/Collab.Land/AlexMasmej.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\ncontract AlexMasmej is SkaleMappedERC20Token(\"AlexMasmej\", \"ALEX\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 4;\n    }\n}\n"
+    "contracts/ERC20/Europa/RocketTokenRETH.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\n// https://etherscan.io/token/0xae78736cd615f374d3085123a210448e74fc6393#code\ncontract RocketTokenRETH is SkaleMappedERC20Token(\"Rocket Pool ETH\", \"rETH\") {}\n"
     },
-    "contracts/ERC20/Collab.Land/FriendsWithBenefits.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\ncontract FriendsWithBenefits is SkaleMappedERC20Token(\"FRIENDS WITH BENEFITS\", \"FWB\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 4;\n    }\n}\n"
-    },
-    "contracts/ERC20/Collab.Land/GlobalCoinResearch.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\ncontract GlobalCoinResearch is SkaleMappedERC20Token(\"Global Coin Research\", \"GCR\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 4;\n    }\n}\n"
-    },
-    "contracts/ERC20/Collab.Land/Hero.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\ncontract Hero is SkaleMappedERC20Token(\"HERO\", \"HERO\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 4;\n    }\n}\n"
-    },
-    "contracts/ERC20/Collab.Land/Page.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\ncontract Page is SkaleMappedERC20Token(\"Page\", \"PAGE\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 8;\n    }\n}\n"
-    },
-    "contracts/ERC20/Collab.Land/SquiggleDAOToken.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\ncontract SquiggleDAOToken is SkaleMappedERC20Token(\"Squiggle DAO Token \", \"Squig\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 4;\n    }\n}\n"
-    },
-    "contracts/ERC20/Collab.Land/Warp.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\ncontract Warp is SkaleMappedERC20Token(\"WARP\", \"WARP\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 4;\n    }\n}\n"
-    },
-    "contracts/ERC20/Europa/Hitmakr.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\n// https://etherscan.io/token/0x3300b02efa180c99a2f61f4731665b51e4e254c4#code\ncontract Hitmakr is SkaleMappedERC20Token(\"HITMAKR\", \"HMKR\") {\n\n    function decimals() override public view returns (uint8) {\n        return 9;\n    }\n}"
-    },
-    "contracts/ERC20/Europa/Link.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\n// https://etherscan.io/address/0x514910771AF9Ca656af840dff83E8264EcF986CA#code\ncontract LinkToken is SkaleMappedERC20Token(\"ChainLink Token\", \"LINK\") {}"
-    },
-    "contracts/ERC20/Europa/Pepe.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\n// https://etherscan.io/address/0x6982508145454ce325ddbe47a25d4ec3d2311933#code\ncontract PepeToken is SkaleMappedERC20Token(\"Pepe\", \"PEPE\") {}\n"
-    },
-    "contracts/ERC20/Europa/Sushi.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\n// https://etherscan.io/address/0x6B3595068778DD592e39A122f4f5a5cF09C90fE2#code\ncontract SushiToken is SkaleMappedERC20Token(\"SushiToken\", \"SUSHI\") {}"
-    },
-    "contracts/ERC20/Europa/wCT1.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"../IMA/SkaleMappedERC20Token.sol\";\n\n// https://etherscan.io/address/0x514910771AF9Ca656af840dff83E8264EcF986CA#code\ncontract WrappedCarToken1 is SkaleMappedERC20Token(\"Wrapped Car Token 1\", \"wCT1\") {\n\n    function decimals() override public view returns (uint8) {\n        return 2;\n    }\n}"
-    },
-    "contracts/ERC20/IMA/EuropaCMPS.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaCMPS is SkaleMappedERC20Token(\"Europa CMPS\", \"CMPS\") {}"
-    },
-    "contracts/ERC20/IMA/EuropaDAI.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaDAI is SkaleMappedERC20Token(\"Europa DAI\", \"DAI\") {}\n"
-    },
-    "contracts/ERC20/IMA/EuropaETH.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaETH is SkaleMappedERC20Token(\"Europa ETH\", \"ETH\") {}\n"
-    },
-    "contracts/ERC20/IMA/EuropaHMKR.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaHMKR is SkaleMappedERC20Token(\"Europa HMKR\", \"HMKR\") {\n\n    function decimals() override public view returns (uint8) {\n        return 9;\n    }\n}"
-    },
-    "contracts/ERC20/IMA/EuropaLINK.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaLINK is SkaleMappedERC20Token(\"Europa LINK\", \"LINK\") {}\n"
-    },
-    "contracts/ERC20/IMA/EuropaRUBY.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaRUBY is SkaleMappedERC20Token(\"Europa RUBY\", \"RUBY\") {}\n"
-    },
-    "contracts/ERC20/IMA/EuropaSKL.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaSKL is SkaleMappedERC20Token(\"Europa SKL\", \"SKL\") {}\n"
-    },
-    "contracts/ERC20/IMA/EuropaUSDC.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaUSDC is SkaleMappedERC20Token(\"Europa USDC\", \"USDC\") {\n\n    function decimals() override public view returns (uint8) {\n        return 6;\n    }\n}\n"
-    },
-    "contracts/ERC20/IMA/EuropaUSDP.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaUSDP is SkaleMappedERC20Token(\"Europa USDP\", \"USDP\") {}\n"
-    },
-    "contracts/ERC20/IMA/EuropaUSDT.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaUSDT is SkaleMappedERC20Token(\"Europa USDT\", \"USDT\") {\n    \n    function decimals() override public view returns (uint8) {\n        return 6;\n    }\n}\n"
-    },
-    "contracts/ERC20/IMA/EuropaWBTC.sol": {
-      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.7;\n\nimport \"./SkaleMappedERC20Token.sol\";\n\ncontract EuropaWBTC is SkaleMappedERC20Token(\"Europa WBTC\", \"WBTC\") {\n    function decimals() override public view returns (uint8) {\n        return 8;\n    }\n}\n"
+    "contracts/ERC20/IMA/ERC20Wrapper.sol": {
+      "content": ""
     },
     "contracts/ERC20/IMA/SkaleMappedERC20Token.sol": {
       "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\nimport \"@openzeppelin/contracts/access/AccessControl.sol\";\n\ncontract SkaleMappedERC20Token is ERC20, AccessControl {\n    bytes32 public constant MINTER_ROLE = keccak256(\"MINTER_ROLE\");\n    bytes32 public constant BURNER_ROLE = keccak256(\"BURNER_ROLE\");\n\n    constructor(\n        string memory name,\n        string memory symbol\n    ) ERC20(name, symbol) {\n        _grantRole(DEFAULT_ADMIN_ROLE, 0xD244519000000000000000000000000000000000);\n        _grantRole(MINTER_ROLE, 0xD2aAA00500000000000000000000000000000000);\n        _grantRole(BURNER_ROLE, 0xD2aAA00500000000000000000000000000000000);\n    }\n\n    function mint(address to, uint256 amount) public virtual {\n        require(hasRole(MINTER_ROLE, msg.sender), \"Caller is not a minter\");\n        _mint(to, amount);\n    }\n\n    function burn(uint256 amount) public virtual {\n        require(hasRole(BURNER_ROLE, msg.sender), \"Caller is not a burner\");\n        _burn(msg.sender, amount);\n    }\n}\n"
