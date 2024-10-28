@@ -56,6 +56,11 @@
             "verifyPath": "contracts/ERC20/Europa/RocketTokenRETH.sol:RocketTokenRETH",
             "tag": "reth"
         },
+        "skivvy": {
+            "contract": "Skivvy",
+            "verifyPath": "contracts/ERC20/Europa/Skivvy.sol:Skivvy",
+            "tag": "skivvy"
+        },
         "sushi": {
             "contract": "SushiToken",
             "verifyPath": "contracts/ERC20/Europa/Sushi.sol:SushiToken",
@@ -123,6 +128,11 @@
             "contract": "EuropaWBTC",
             "verifyPath": "contracts/ERC20/IMA/EuropaWBTC.sol:EuropaWBTC",
             "tag": "WBTC"
+        },
+        "europaSkivvy": {
+            "contract": "EuropaSkivvy",
+            "verifyPath": "contracts/ERC20/IMA/EuropaSkivvy.sol:EuropaSkivvy",
+            "tag": "eSkivvy"
         }
     },
     "unlimited": {
@@ -166,6 +176,7 @@
             "verifyPath": "contracts/Calypso/ERC20/Unlimited/CalypsoWETH.sol:CalypsoWBTC",
             "tag": "uWBTC"
         }
+
     }
 
 }
