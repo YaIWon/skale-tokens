@@ -94,6 +94,11 @@
             "verifyPath": "contracts/ERC20/IMA/EuropaETH.sol:EuropaETH",
             "tag": "ETH"
         },
+        "reth": {
+            "contract": "EuroparETH",
+            "verifyPath": "contracts/ERC20/IMA/EuroparETH.sol:EuroparETH",
+            "tag": "rETH"
+        },
         "link": {
             "contract": "EuropaLINK",
             "verifyPath": "contracts/ERC20/IMA/EuropaLINK.sol:EuropaLINK",
