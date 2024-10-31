@@ -24,14 +24,14 @@ contract SkaleMappedERC721Token is ERC721, AccessControl {
         
     }
 
-    function mint(address to, uint256 amount) public virtual {
+    function mint(address to, uint256 tokenId) public virtual {
         require(hasRole(MINTER_ROLE, msg.sender), "Caller is not a minter");
-        _mint(to, amount);
+        _mint(to, tokenId);
     }
 
-    function burn(address to, uint256 amount) public virtual {
+    function burn(uint256 tokenId) public virtual {
         require(hasRole(BURNER_ROLE, msg.sender), "Caller is not a minter");
-        _mint(to, amount);
+        _burn(tokenId);
     }
 
     function setBaseEndpoint(string memory endpoint) public onlyRole(SET_URI_ROLE) {
