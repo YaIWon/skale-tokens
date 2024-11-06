@@ -53,6 +53,10 @@ const config: HardhatUserConfig = {
             accounts: [PRIVATE_KEY],
             url: "https://lanky-ill-funny-testnet-indexer.skalenodes.com:10136"
         },
+        "nebula-mainnet": {
+            accounts: [PRIVATE_KEY],
+            url: BASE_RPC_MAINNET + 'green-giddy-denebola'
+        },
         "titan-mainnet": {
             accounts: [PRIVATE_KEY],
             url: "https://mainnet.skalenodes.com/v1/parallel-stormy-spica"
@@ -65,7 +69,8 @@ const config: HardhatUserConfig = {
             "europa-testnet": "na",
             "europa-mainnet": "na",
             "titan-mainnet": "na",
-            "nebula-testnet": "na"
+            "nebula-testnet": "na",
+            "nebula-mainnet":"na",
         },
         customChains: [
             {
@@ -82,6 +87,14 @@ const config: HardhatUserConfig = {
                 urls: {
                     apiURL: "https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/api",
                     browserURL: "https://giant-half-dual-testnet.explorer.testnet.skalenodes.com"
+                }
+            },
+            {
+                network: "nebula-mainnet",
+                chainId:  1482601649,
+                urls: {
+                    apiURL: "https://green-giddy-denebola.explorer.mainnet.skalenodes.com/api",
+                    browserURL: "https://green-giddy-denebola.explorer.mainnet.skalenodes.com"
                 }
             },
             {
