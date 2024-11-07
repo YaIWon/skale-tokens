@@ -84,6 +84,11 @@
             "verifyPath": "contracts/ERC20/IMA/EuropaCMPS.sol:EuropaCMPS",
             "tag": "CMPS"
         },
+        "flag": {
+            "contract": "EuropaFLAG",
+            "verifyPath": "contracts/ERC20/IMA/EuropaFLAG.sol:EuropaFLAG",
+            "tag": "FLAG"
+        },
         "dai": {
             "contract": "EuropaDAI",
             "verifyPath": "contracts/ERC20/IMA/EuropaDAI.sol:EuropaDAI",
