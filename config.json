@@ -46,6 +46,11 @@
             "verifyPath": "contracts/ERC20/Europa/Hitmakr.sol:Hitmakr",
             "tag": "HMKR"
         },
+        "unipoly": {
+            "contract": "Unipoly",
+            "verifyPath": "contracts/ERC20/Europa/Unipoly.sol:Unipoly",
+            "tag": "unipoly"
+        },
         "link": {
             "contract": "LinkToken",
             "verifyPath": "contracts/ERC20/Europa/Link.sol:LinkToken",
@@ -88,6 +93,11 @@
             "contract": "EuropaFLAG",
             "verifyPath": "contracts/ERC20/IMA/EuropaFLAG.sol:EuropaFLAG",
             "tag": "FLAG"
+        },
+        "unp": {
+            "contract": "EuropaUNP",
+            "verifyPath": "contracts/ERC20/IMA/EuropaUNP.sol:EuropaUNP",
+            "tag": "UNP"
         },
         "dai": {
             "contract": "EuropaDAI",
